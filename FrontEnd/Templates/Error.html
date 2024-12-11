@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Error Page</title>
+    <link rel="stylesheet" href="../Static/styles/style.css">
+    <script defer type="module" src="../Static/js/api/logout.js"></script>
+    <script defer type="module" src="../Static/js/api/login.js"></script>
+    <link rel="shortcut icon" href="../Static/images/userbaraxe.png" type="image/x-icon">
+</head>
+
+    
+</body>
+</html>
+
+<body>
+
+    <header class="flex-beetween">
+        <div>
+            <a href="/"><img width="40px" src="../Static/images/userbaraxe.png" alt="forum"></a>
+            <nav id="nav">
+                <p>Email :</p>
+                <input id="loginemail" type="email" placeholder="Email" required>
+                <p>Password :</p>
+                <input id="loginpassword" type="password" placeholder="Password">
+                <button id="login">Log in</button>
+                <a href="/register">Register for your free account!</a>
+            </nav>
+        </div>
+    </header>
+
+<main>
+    <section class="border" id="welcome">
+        <div class="header">
+            <p>Status Code : {{.StatusCode}}</p>
+        </div>
+            <p style="font-size: 13px;padding: 10px;">Error Message : {{.Error}}</p>
+    </section>
+</main>
+
+
+
+</body>
+
+</html>

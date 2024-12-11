@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    outline: none;
+}
+
+body {
+    background-image: url("../images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    background-color: #222;
+}
+
+:root {
+    --black: #000000;
+    --grey: #222;
+    --whitesmoke: #696969;
+    --orange: #c9ab25;
+    --white: #ffff;
+    --Puprle: #6354bb;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px 0;
+}
+
+
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--orange);
+}
+
+/*=======================================
+        Header style
+========================================*/
+
+header {
+    display: flex;
+    background: linear-gradient(to bottom, var(--black), var(--whitesmoke));
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+header div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 10px;
+    font-size: 12px;
+    color: white;
+}
+
+header div img {
+    position: relative;
+    bottom: -3px;
+}
+
+header nav {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+header input {
+    font-size: 12px;
+    width: 130px;
+}
+
+header button {
+    padding: 0 5px;
+    margin: 5px;
+}
+
+header a {
+    color: white;
+}
+
+header a:hover {
+    color: var(--orange);
+    cursor: pointer;
+}
+
+
+/*=======================================
+        Border style
+========================================*/
+
+.border {
+    margin: 10px;
+    background-color: var(--white);
+    width: 50%;
+}
+
+.border .header {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 8px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.border .fieldsets {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.fieldsets div {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    flex-direction: column;
+    width: 50%;
+}
+
+.border legend {
+    color: var(--Puprle);
+    font-size: 11px;
+}
+
+.border .fieldsets p,
+.border .fieldsets b {
+    font-size: 11px;
+    margin: 5px;
+}
+
+.border fieldset {
+    padding: 10px;
+}
+
+.border button {
+    width: 130px;
+    font-size: 11px;
+    margin: 10px;
+}
+
+.border .filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.border .filters p {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: var(--Puprle);
+    text-decoration: underline;
+}
+
+.border .filters p:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.border .filters div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.border .filters input {
+    font-size: 11px;
+}
+.border .filters button {
+    width: 25px;
+    cursor: pointer;
+}
+
+/*=======================================
+        Forum style
+========================================*/
+
+.forums-container {
+    padding: 10px;
+}
+.forum {
+    padding: 10px;
+    border: 1px solid #d3d3d3;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.forums-container .title {
+    color: var(--Puprle);
+    cursor: pointer;
+}
+
+.forums-container .title:hover {
+    text-decoration: underline;
+}
+
+.forum .topics {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.forum .content {
+    padding: 4px 0;
+    word-wrap: break-word;
+}
+
+.forum .tags {
+    display: flex;
+}
+.forum .tags p {
+    padding: 2px;
+    font-size: 12px !important;
+}
+.forum .topics p {
+    font-size: 13px;
+    color: var(--Puprle);
+}
+.reactions {
+    display: flex;
+    align-items: center;
+}
+.reactions p {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 5px;
+    cursor: pointer;
+    font-size: 13px;
+}
+.forum .content p {
+    font-size: 13px;
+}
+
+/*=======================================
+        Post style
+========================================*/
+
+.post {
+    display: flex;
+    font-size: 12px;
+    height: 40vh;
+    position: relative;
+}
+
+.post .profile {
+    width: 30%;
+    border-right: 1px solid whitesmoke;
+}
+.post .postContent {
+    padding: 20px;
+    width: 100%;
+}
+.post .profile h3 {
+    font-size: 18px;
+    padding-left: 10px;
+    color: var(--Puprle);
+}
+.post .profile div {
+    border: 1px solid #dadada;
+    width: 150px;
+    margin: 10px 0 ;
+    background-color: whitesmoke;
+    padding: 3px;
+}
+
+.post .postitle {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.post .tags {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    flex-wrap: wrap;
+    bottom: 0;
+    min-width: 70%;
+}
+.post .tags p {
+    font-size: 13px;
+    margin: 0 2px;
+
+}
+

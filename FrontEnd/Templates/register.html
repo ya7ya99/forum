@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Forum</title>
+    <script defer type="module" src="../Static/js/api/register.js"></script>
+    <script defer type="module" src="../Static/js/api/login.js"></script>
+    <link rel="stylesheet" href="../Static/styles/style.css">
+    <link rel="shortcut icon" href="../Static/images/userbaraxe.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <header class="flex-beetween">
+        <div>
+            <a href="/"><img width="40px" src="../Static/images/userbaraxe.png" alt="forum"></a>
+            <nav>
+                <p>Email :</p>
+                <input id="loginemail" type="email" placeholder="Email">
+                <p>Password :</p>
+                <input id="loginpassword" type="password" placeholder="Password">
+                <button id="login">Log in</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="border">
+            <div class="header">
+                <p>Register at forum</p>
+            </div>
+            <div class="fieldsets">
+                <div>
+                    <b style="color: red;">Feel free to use fake information when registering on this website—just to stay safe. The developer has been known to be overly curious.</b>
+                    <p>In order to be able to post messages on the forum, you must first register. Please enter your desired user name, your email address and other required details in the form below.</p>
+                    <b>Username :</b>
+                    <input id="registerusername" type="text">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Email :</legend>
+                        <p>Please enter a password for your user account.</p>
+                        <input id="registeremail" type="email">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Password :</legend>
+                        <p>Please enter a valid email address for yourself.</p>
+                        <input id="registerpassword" type="password">
+                    </fieldset>
+                    <button id="register">Complete Registration</button>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="border">
+            <div class="header">
+                <p>Stats :</p>
+            </div>
+            <div class="fieldsets">
+                <h5 id="total">Total Posts : 0</h5>
+            </div>
+        </section>
+
+    </main>
+
+
+
+</body>
+
+</html>

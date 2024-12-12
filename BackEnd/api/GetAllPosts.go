@@ -2,7 +2,6 @@ package api
 
 import (
 	"database/sql"
-	"fmt"
 	"net/http"
 	"strconv"
 
@@ -11,20 +10,18 @@ import (
 )
 
 func AllPostsApi(w http.ResponseWriter, r *http.Request) {
+	var err error
 	if r.Method != http.MethodGet {
+
 		helpers.Writer(w, map[string]string{"Error": "Methode not allowed"}, http.StatusMethodNotAllowed)
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
-	
 	PostID := r.FormValue("id")
 	Filter := r.URL.Query().Get("filter")
 	Tagfilter := r.URL.Query().Get("tagfilter")
-	Offset, err := strconv.Atoi(r.URL.Query().Get("offset"))
-	if err != nil {
-		fmt.Println(err)
-	}
-	
+	Offset, _ := strconv.Atoi(r.URL.Query().Get("offset"))
+
 	limit := 5
 
 	var NewPosts []helpers.AllPosts
@@ -64,6 +61,7 @@ func GetPosts(r *http.Request, PostId string, offset, limit int) ([]helpers.AllP
 	if err := GetAllPosts(r, rows, &posts); err != nil {
 		return nil, err
 	}
+
 	return posts, nil
 }
 

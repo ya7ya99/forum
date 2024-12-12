@@ -295,3 +295,72 @@ header a:hover {
 
 }
 
+/*=================================*/
+/* Message Styling */
+#successMessage, 
+#errorMessage {
+    width: 100%;
+    padding: 12px 16px;
+    margin-top: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    display: none;
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#successMessage {
+    background-color: #e7f5e7;
+    border: 1px solid #28a745;
+    color: #155724;
+}
+
+#successMessage::before {
+    content: '✓';
+    margin-right: 10px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+#errorMessage {
+    background-color: #f8d7da;
+    border: 1px solid #dc3545;
+    color: #721c24;
+}
+
+#errorMessage::before {
+    content: '!';
+    margin-right: 10px;
+    color: #dc3545;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    line-height: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Optional: Close button for messages */
+.message-close {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: rgba(0,0,0,0.5);
+    transition: color 0.2s ease;
+}
+

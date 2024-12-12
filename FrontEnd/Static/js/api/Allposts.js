@@ -49,23 +49,15 @@ if (TopicFilterButton) {
 async function LoadData(filter, offset=0) {
     const res = await fetch(`/api/posts?filter=${filter}&offset=${offset}&tagfilter=${tagfilter}`)
     const Data = await res.json()
-
     if (Data === null) {
-        if (NextButton) {
-            NextButton.disabled = true
-            NextButton.style.display = 'none'
-        }
-        offset -= limit
-        
-        const Parent = document.getElementById("forums-container")
-        Parent.innerHTML = "<p>no post more </p>"
+        handleEmptyDataState()
         return
     }
     if (NextButton) {
         NextButton.disabled = false;
         NextButton.style.display = 'block'
     }
-///////////////////////////////////////////
+
     const Parent = document.getElementById("forums-container")
 
     let HtmlElement = ""
@@ -132,5 +124,13 @@ function formatDate(date) {
 }
 
 LoadData()
+function handleEmptyDataState() {
+    if (NextButton) {
+        NextButton.disabled = true;
+        NextButton.style.display = 'none';
+    }  
+    const parent = document.getElementById("forums-container");
+    parent.innerHTML = "<p>No more posts available</p>";
+}
 
-export { formatDate }
+export { formatDate, LoadData }

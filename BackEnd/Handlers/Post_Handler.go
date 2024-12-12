@@ -13,6 +13,7 @@ func HandlePost(w http.ResponseWriter, r *http.Request) {
 		utils.ErrorWriter(w, "Methode not allowed", http.StatusMethodNotAllowed)
 		return
 	}
+
 	PostID := r.FormValue("id")
 	Res, err := http.Get("http://localhost:8080/api/posts?id=" + PostID)
 	if err != nil {

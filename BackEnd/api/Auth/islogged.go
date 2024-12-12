@@ -12,6 +12,7 @@ func Islogged(w http.ResponseWriter, r *http.Request) {
 		helpers.Writer(w, map[string]string{"Error": helpers.ErrMethod.Error()}, http.StatusMethodNotAllowed)
 		return
 	}
+
 	id, err := helpers.GetUserID(r)
 	if err != nil {
 		helpers.Writer(w, map[string]string{"Error": err.Error()}, 400)

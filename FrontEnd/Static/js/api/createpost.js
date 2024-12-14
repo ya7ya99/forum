@@ -4,42 +4,27 @@ document.addEventListener("elementReady", () => {
     const PostButton = document.getElementById("createpost");
     const successMessage = document.getElementById("successMessage");
     const errorMessage = document.getElementById("errorMessage");
-    
+
     // Setup close buttons for messages
     if (successMessage || errorMessage) {
         successMessage.style.display = 'block'
         successMessage.style.display = 'none';
-    } 
-    
+    }
+
     if (PostButton) {
-        PostButton.addEventListener("click", async () => {     
+        PostButton.addEventListener("click", async () => {
             const PostTitle = document.getElementById("Posttitle").value;
             const PostContent = document.getElementById("Postcontent").value;
             const PostTopics = document.getElementById("Postopic").value.split(" ");
             try {
                 validateInputs(PostTitle, PostContent, PostTopics);
-                await createPost(PostTitle, PostContent, PostTopics);
-                // Success handling
-                successMessage.textContent = "Post Created Successfully";
-                successMessage.style.display = "block";
-                errorMessage.style.display = "none";
-                
-                // Clear form fields
+                await createPost(PostTitle, PostContent, PostTopics);           
+                showSuccess("Post Created Successfully")
                 resetFormFields()
-                
                 LoadData('', 0)
-                // Reapply close button
-                setupMessageClose(successMessage);
-                
-                
+
             } catch (error) {
-                // Error handling
-                errorMessage.textContent = error.message;
-                errorMessage.style.display = "block";
-                successMessage.style.display = "none";
-                
-                // Reapply close button
-                setupMessageClose(errorMessage);
+                showError(error.message)
             }
         });
     }
@@ -85,6 +70,20 @@ async function createPost(title, content, topics) {
     }
 
     return await response.json();
+}
+
+function showError(message) {
+    this.errorMessage.textContent = message;
+    this.errorMessage.style.display = "block";
+    this.successMessage.style.display = "none";
+    setupMessageClose(this.errorMessage);
+}
+
+function showSuccess(message) {
+    this.successMessage.textContent = message;
+    this.successMessage.style.display = "block";
+    this.errorMessage.style.display = "none";
+    setupMessageClose(this.successMessage);
 }
 
 export { setupMessageClose }

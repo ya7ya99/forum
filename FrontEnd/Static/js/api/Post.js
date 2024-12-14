@@ -7,7 +7,7 @@ async function PostLoader() {
 
     const res = await fetch(`api/posts?id=${PostID}`)
     let post = await res.json()
-    
+
     post = post[0]
 
     const PostContainer = document.getElementById("post-container")
@@ -138,4 +138,4 @@ function formatDate(date) {
 PostLoader()
 
 
-
+export { PostLoader }

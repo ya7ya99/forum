@@ -1,11 +1,23 @@
+import { setupMessageClose } from './createpost.js'
+import { PostLoader } from './Post.js'
+
+
+const successMessage = document.getElementById("successMessage");
+const errorMessage = document.getElementById("errorMessage");
+
 async function CreateComment() {
 
     const IsLogged = await fetch("/api/isloged")
     if (IsLogged.status != 200) {
+        errorMessage.textContent = error.message;
+        errorMessage.style.display = "block";
+        successMessage.style.display = "none";
+
+        setupMessageClose(errorMessage);
         return
     }
     document.getElementById("comment-component").innerHTML =
-    `
+        `
                 <div class="header">
                 <p>Create New Comment</p>
             </div>
@@ -36,13 +48,19 @@ async function CreateComment() {
         const Data = await res.json()
 
         if (res.status != 200) {
-            alert(Data.Error)
+            errorMessage.textContent = error.message;
+            errorMessage.style.display = "block";
+            successMessage.style.display = "none";
+
+            setupMessageClose(errorMessage);
             return
         }
-
-        alert(Data.Message)
-        window.location.href = `/post?id=${document.getElementById("post-container").getAttribute("data-id")}`
-
+        successMessage.textContent = "Post comment Successfully";
+        successMessage.style.display = "block";
+        errorMessage.style.display = "none";
+        setupMessageClose(successMessage);
+        document.getElementById('commentcontent').value = ""
+        PostLoader()
     })
 }
 

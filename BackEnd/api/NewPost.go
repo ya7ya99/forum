@@ -2,6 +2,7 @@ package api
 
 import (
 	"encoding/json"
+	"fmt"
 	"html"
 	"io"
 	"net/http"
@@ -43,6 +44,7 @@ func PostsAPI(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	LastID, err := Res.LastInsertId()
+	fmt.Println("---", LastID, UserID)
 	if err != nil {
 		helpers.Writer(w, map[string]string{"Error": err.Error()}, http.StatusInternalServerError)
 		return

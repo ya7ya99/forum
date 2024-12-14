@@ -86,3 +86,5 @@ async function createPost(title, content, topics) {
 
     return await response.json();
 }
+
+export { setupMessageClose }

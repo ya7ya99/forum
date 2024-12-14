@@ -15,7 +15,7 @@ func HandlePost(w http.ResponseWriter, r *http.Request) {
 	}
 
 	PostID := r.FormValue("id")
-	Res, err := http.Get("http://localhost:8080/api/posts?id=" + PostID)
+	Res, err := http.Get("http://localhost:8089/api/posts?id=" + PostID)
 	if err != nil {
 		utils.ErrorWriter(w, "An unexpected error occurred. Please try again later.", http.StatusInternalServerError)
 		return

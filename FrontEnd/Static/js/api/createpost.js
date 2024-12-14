@@ -85,5 +85,3 @@ function showSuccess(message) {
     this.errorMessage.style.display = "none";
     setupMessageClose(this.successMessage);
 }
-
-export { setupMessageClose }
